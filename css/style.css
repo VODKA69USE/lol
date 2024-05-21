@@ -1,0 +1,185 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #001f3f;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.sky {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to bottom, #001f3f, #001a33);
+    overflow: hidden;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.8);
+    animation: twinkle 2s infinite;
+}
+
+.star:nth-child(1) { top: 10%; left: 20%; }
+.star:nth-child(2) { top: 30%; left: 40%; }
+.star:nth-child(3) { top: 20%; left: 60%; }
+.star:nth-child(4) { top: 40%; left: 80%; }
+.star:nth-child(5) { top: 15%; left: 50%; }
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+.moon {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    width: 120px;
+    height: 120px;
+    transform: translateX(-50%);
+}
+
+.moon img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    box-shadow: 0 0 30px 15px rgba(255, 255, 255, 0.7);
+    animation: float 4s ease-in-out infinite;
+}
+
+.lagoon {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50%;
+    background: radial-gradient(circle at bottom, #004080, #001a33);
+    overflow: hidden;
+}
+
+.reflection {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    width: 120px;
+    height: 60px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.5), rgba(240, 240, 240, 0));
+    border-radius: 50%;
+    transform: translateX(-50%) rotateX(180deg);
+    filter: blur(8px);
+    opacity: 0.7;
+    animation: ripple 4s ease-in-out infinite;
+}
+
+.water {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 26, 51, 0.5);
+    overflow: hidden;
+}
+
+.wave {
+    position: absolute;
+    bottom: 0;
+    width: 200%;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.2);
+    opacity: 0.6;
+    border-radius: 43%;
+    animation: wave-animation 4s linear infinite;
+}
+
+.wave1 {
+    animation-duration: 4s;
+    animation-delay: 0s;
+}
+
+.wave2 {
+    animation-duration: 5s;
+    animation-delay: -2s;
+}
+
+.wave3 {
+    animation-duration: 6s;
+    animation-delay: -1s;
+}
+
+.sparkle {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.5);
+    animation: sparkle-animation 2s infinite ease-in-out;
+}
+
+.sparkle1 { top: 70%; left: 40%; animation-duration: 2s; animation-delay: 0s; }
+.sparkle2 { top: 75%; left: 50%; animation-duration: 2.5s; animation-delay: 1s; }
+.sparkle3 { top: 80%; left: 60%; animation-duration: 3s; animation-delay: 1.5s; }
+.sparkle4 { top: 72%; left: 45%; animation-duration: 2.2s; animation-delay: 0.3s; }
+.sparkle5 { top: 78%; left: 55%; animation-duration: 2.8s; animation-delay: 1.2s; }
+
+@keyframes float {
+    0%, 100% { transform: translateX(-50%) translateY(-10px); }
+    50% { transform: translateX(-50%) translateY(10px); }
+}
+
+@keyframes ripple {
+    0%, 100% { transform: translateX(-50%) rotateX(180deg) scaleX(1); }
+    50% { transform: translateX(-50%) rotateX(180deg) scaleX(1.1); }
+}
+
+@keyframes wave-animation {
+    0% { transform: translateX(-50%) translateY(0); }
+    100% { transform: translateX(50%) translateY(0); }
+}
+
+@keyframes sparkle-animation {
+    0%, 100% { opacity: 0; transform: scale(0.5); }
+    50% { opacity: 1; transform: scale(1); }
+}
+
+.lyrics {
+    position: absolute;
+    bottom: 10%;
+    width: 100%;
+    text-align: center;
+    font-size: 2em;
+    color: #add8e6; /* Azul cálido */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    transition: opacity 0.5s;
+    animation: move 3s infinite alternate; /* Animación */
+    top: 300px;
+}
+
+@keyframes move {
+    from { transform: translateY(-5px); }
+    to { transform: translateY(5px); }
+}
+
+audio {
+    position: absolute;
+    bottom: 5%;
+    width: 300px;
+    left: 50%;
+    transform: translateX(-50%);
+}
